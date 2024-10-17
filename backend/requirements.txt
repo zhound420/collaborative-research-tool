@@ -1,0 +1,10 @@
+Flask
+Flask-SocketIO
+eventlet
+openai
+requests
+beautifulsoup4
+pandas
+PyPDF2
+anthropic
+ollama
