@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_socketio import SocketIO, emit
 from werkzeug.utils import secure_filename
-from swarm import Agent
 import eventlet
 import os
 import requests
@@ -24,7 +23,12 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 CLAUDE_API_KEY = os.getenv("CLAUDE_API_KEY")
 OLLAMA_URL = os.getenv("OLLAMA_URL")
 
-# Define agents with Swarm
+# Define a base agent class
+class Agent:
+    def act(self, task):
+        raise NotImplementedError("Subclasses should implement this method")
+
+# Define agents
 class ResearchAgent(Agent):
     def act(self, task):
         response = f"Researching topic: {task}"
@@ -178,4 +182,3 @@ def upload_file():
 
 if __name__ == '__main__':
     socketio.run(app, debug=True, port=5000)
-```
