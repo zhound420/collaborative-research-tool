@@ -1,13 +1,13 @@
 # Collaborative Research Tool
 
 ## Overview
-This tool provides a collaborative platform for real-time agent-based research visualization. The backend is built with Flask, while the frontend uses React and D3.js for visualization.
+The Collaborative Research Tool is a local application that allows users to visualize real-time interactions between different research agents. These agents collaborate to perform research tasks, analyze data, and communicate findings. The backend is built using Flask and Python, while the frontend is developed using React and D3.js.
 
 ## Features
-- Multiple agents (Research Specialist, Policy Analyst, etc.) to perform different research-related tasks.
-- Real-time visualization of agent activities.
-- API integrations (OpenAI, Anthropic, Ollama).
-- File processing for CSV and PDF documents.
+- Multiple agents performing tasks such as research, policy evaluation, technical assessment, and sentiment analysis.
+- Real-time visualization of agent interactions using D3.js.
+- Integration with various LLMs, including OpenAI, Anthropic, and Ollama.
+- File processing capabilities for CSV and PDF documents.
 
 ## Prerequisites
 - **Backend**: Python 3.10+
@@ -16,9 +16,10 @@ This tool provides a collaborative platform for real-time agent-based research v
 ## Installation
 
 ### Backend Setup
-1. Navigate to the **backend** folder:
+1. Clone the repository and navigate to the **backend** folder:
    ```sh
-   cd backend
+   git clone <repository-url>
+   cd collaborative_research_tool/backend
    ```
 2. Install dependencies:
    ```sh
@@ -30,13 +31,14 @@ This tool provides a collaborative platform for real-time agent-based research v
    - **OLLAMA_URL**: URL for Ollama integration.
 
 ### Frontend Setup
-1. Navigate to the **frontend** folder:
+1. Navigate to the **frontend** folder and create the React app:
    ```sh
    cd ../frontend
+   npx create-react-app .
    ```
-2. Install dependencies:
+2. Install additional dependencies:
    ```sh
-   npm install
+   npm install socket.io-client d3
    ```
 
 ## Running the Application
@@ -56,14 +58,37 @@ npm start
 Access the application by opening your browser at `http://localhost:3000`.
 
 ## Usage
-- Enter a topic in the search bar.
-- Select the agents you want to involve in the research task.
-- Upload files for analysis (optional).
-- Click on "Start Research" to see real-time agent interactions visualized.
+1. Enter a research topic in the search bar.
+2. Select the agents you want to involve in the research task.
+3. Upload files for analysis (optional).
+4. Click on "Start Research" to see real-time agent interactions visualized.
+
+## Project Structure
+```
+collaborative_research_tool/
+|-- backend/
+|   |-- main.py
+|   |-- requirements.txt
+|-- frontend/
+|   |-- public/
+|   |   |-- index.html
+|   |-- src/
+|   |   |-- App.js
+|   |-- package.json
+|-- uploads/ (Empty, used for uploaded files)
+|-- .gitignore
+|-- README.md
+```
 
 ## Testing
 - Use **Postman** or **CURL** to test backend endpoints.
-- Verify real-time updates on the frontend.
+- Verify real-time updates on the frontend when agents perform actions.
 
 ## License
 MIT License.
+
+## Contributions
+Contributions are welcome! Feel free to submit a pull request or open an issue for suggestions and improvements.
+
+## Contact
+For any inquiries or support, please reach out via the repository's issue tracker.
